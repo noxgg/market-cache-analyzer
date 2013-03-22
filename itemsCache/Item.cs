@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace noxiousET.cacheAnalyzer
+namespace noxiousET.marketDataAnalyzer.itemsCache
 {
-    class ItemData
+    class Item
     {
         public List<MarketOrder> SellOrders { set; get; }
         public List<MarketOrder> BuyOrders { set; get; }

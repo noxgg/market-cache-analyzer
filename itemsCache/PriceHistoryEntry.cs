@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace noxiousET.cacheAnalyzer
+namespace noxiousET.marketDataAnalyzer.itemsCache
 {
     class PriceHistoryEntry
     {
-        public readonly DateTime HistoryDate;
-        public readonly double LowPrice;
-        public readonly double HighPrice;
-        public readonly double AvgPrice;
-        public readonly long Volume;
-        public readonly int Orders;
+        public DateTime HistoryDate { private set; get; }
+        public double LowPrice { private set; get; }
+        public double HighPrice { private set; get; }
+        public double AvgPrice { private set; get; }
+        public long Volume { private set; get; }
+        public int Orders { private set; get; }
 
         public PriceHistoryEntry(Dictionary<object, object> priceHistory)
         {

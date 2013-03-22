@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace noxiousET.cacheAnalyzer
+namespace noxiousET.marketDataAnalyzer.itemsCache
 {
     class MarketOrder
     {
-        public readonly double Price;
-        public readonly double VolRemaining;
-        public readonly long OrderID;
-        public readonly DateTime IssueDate;
-        public readonly int TypeID;
-        public readonly int VolEntered;
-        public readonly int MinVolume;
-        public readonly int StationID;
-        public readonly int RegionID;
-        public readonly int SolarSystemID;
-        public readonly int Jumps;
-        public readonly short Range;
-        public readonly short Duration;
-        public readonly bool Bid;
+        public double Price { private set; get; }
+        public double VolRemaining { private set; get; }
+        public long OrderID { private set; get; }
+        public DateTime IssueDate { private set; get; }
+        public int TypeID { private set; get; }
+        public int VolEntered { private set; get; }
+        public int MinVolume { private set; get; }
+        public int StationID { private set; get; }
+        public int RegionID { private set; get; }
+        public int SolarSystemID { private set; get; }
+        public int Jumps { private set; get; }
+        public short Range { private set; get; }
+        public short Duration { private set; get; }
+        public bool Bid { private set; get; }
 
 
         public MarketOrder(Dictionary<object, object> order)
