@@ -27,15 +27,15 @@ namespace noxiousET.marketDataAnalyzer.input
                 var cacheResultKey = (List<object>)((Tuple<object>)cacheResult.Key).Item1;
                 var resultType = (string) cacheResultKey[1];
                 var typeID = (short)cacheResultKey[3];
-                var regionID = (long) cacheResultKey[2];
+                var regionID = Convert.ToInt32(cacheResultKey[2]);
                 var regionalItemCache = GetRegionalItemCache(regionID);
                 var cacheResultValue = (List<object>)((Dictionary<object, object>)cacheResult.Value)["lret"];
                 
-                if (!regionalItemCache.Contains(typeID))
+                if (!regionalItemCache.ContainsKey(typeID))
                 {
                     regionalItemCache.Add(typeID, new Item());
                 }
-                var itemData = regionalItemCache.Get(typeID);
+                var itemData = regionalItemCache[typeID];
 
                 if (resultType.Equals("GetOrders"))
                 {
@@ -63,14 +63,14 @@ namespace noxiousET.marketDataAnalyzer.input
                 entry => new PriceHistoryEntry(entry)).ToList();
         }
 
-        private RegionalItemCache GetRegionalItemCache(long regionID)
+        private RegionalItemCache GetRegionalItemCache(int regionID)
         {
-            if (!_regions.Contains(regionID))
+            if (!_regions.ContainsKey(regionID))
             {
                 _regions.Add(regionID, new RegionalItemCache());
             }
 
-            return _regions.Get(regionID);
+            return _regions[regionID];
         }
     }
 }
